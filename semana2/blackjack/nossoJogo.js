@@ -19,8 +19,8 @@ if(confirm("Você quer iniciar uma nova rodada?")){
 
    let cartasJogador1 = []
    let cartasJogador2 = []
-   
-   cartasJogador1.push(comprarCarta())
+   let insumoPush = comprarCarta() 
+   cartasJogador1.push(insumoPush)  
    cartasJogador1.push(comprarCarta())
    
    
@@ -45,6 +45,10 @@ if(confirm("Você quer iniciar uma nova rodada?")){
 } else {
    console.log("O jogo acabou!"); 
 }
+
+
+
+
 
 
 
