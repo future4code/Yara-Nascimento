@@ -28,7 +28,12 @@ background-color: mediumvioletred;
  }
 
 
+div bolo {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 
+
+}
 
  footer{
     justify-content: center;
@@ -37,3 +42,18 @@ background-color: mediumvioletred;
      align-items: center;
      display: flex;
  }
+
+
+
+
+
+
+ .icone-e-texto {
+    display: flex;
+    align-items: center;
+}
+.icone {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
