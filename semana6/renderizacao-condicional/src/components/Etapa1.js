@@ -25,3 +25,8 @@ class Etapa1 extends React.Component {
 }
 
 export default Etapa1;
+<<<<<<< HEAD
+=======
+
+// Fim
+>>>>>>> 6b20b03e78374e319f91d1590392153ecdc04ae9
