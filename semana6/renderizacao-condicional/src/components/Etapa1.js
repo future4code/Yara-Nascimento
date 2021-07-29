@@ -25,5 +25,3 @@ class Etapa1 extends React.Component {
 }
 
 export default Etapa1;
-
-// Fim
