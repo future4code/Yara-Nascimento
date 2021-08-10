@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
-import PokeCard from './components/PokeCard'
-
 import axios from 'axios'
+import PokeCard from './components/PokeCard'
 
 const App = () => {
   const [pokeList, setPokeList] = useState([])
   const [pokeName, setPokeName] = useState("")
 
 
-   useEffect(() => {
+  useEffect(() => {
 
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then(response => {
 
-        setPokeList( response.data.results )
+      .then(response => {
+        setPokeList(response.data.results)
+
       })
       .catch(err => {
         console.log(err)
+
       })
+
   }, [])
 
   const changePokeName = (event) => {
-    setPokeName({ pokeName: event.target.value });
+    setPokeName(event.target.value);
   };
 
 
@@ -31,7 +33,7 @@ const App = () => {
     <div className="App">
 
       <select onChange={changePokeName}>
-        <option value={""}>Nenhum</option>
+        <option value={""}>Escolha seu Pokemon</option>
 
         {pokeList.map(pokemon => {
           return (

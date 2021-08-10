@@ -1,23 +1,21 @@
 
 import axios from "axios";
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 
 
 const PokeCard = (props) => {
-
     const [pokemon, setPokemon] = useState({})
 
     useEffect(() => {
         pegaPokemon(props.pokemon)
-    })
+    }, [props.pokemon])
 
 
     const pegaPokemon = (pokeName) => {
         axios
             .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-
             .then(response => {
                 setPokemon(response.data)
             })
