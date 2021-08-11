@@ -75,4 +75,4 @@ Link:
 https://fine-nose.surge.sh/
 
 
-Busca por pokemons estã funcionando
+Busca por pokemons está funcionando
