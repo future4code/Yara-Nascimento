@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 
 import { HomePage } from './Pages/HomePage/HomePage'
@@ -52,18 +53,31 @@ export default App
 import { HomePage } from './Pages/HomePage/HomePage'
 import { MatchesPage } from './Pages/MatchesPage/MatchesPage.js'
 import styled from 'styled-components'
+=======
+import React from 'react'
+import styled from 'styled-components';
+import HomePage from './pages/HomePage/HomePage'
+import MatchesPage from './pages/MatchesPage/MatchesPage'
+>>>>>>> 43ca3306f44388fd92e030f630e537d4a5ae5052
 
 
 
 const BordaGeral = styled.div`
   position: absolute;
+<<<<<<< HEAD
   border: 2px solid black;
   width: 300px;
   height: 450px;
+=======
+  border: 1px solid black;
+  width: 350px;
+  height: 500px;
+>>>>>>> 43ca3306f44388fd92e030f630e537d4a5ae5052
   left: 455px;
   top: 65px;
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
   flex-direction: column;
 `
 const AstroContainer = styled.div`
@@ -141,3 +155,35 @@ export default function App() {
 
 }
 */
+=======
+  color: black;
+
+  strong {
+    color: aqua;
+    
+    
+  }
+`
+
+
+const App = () => {
+  return (
+
+    <BordaGeral>
+
+      <strong>
+        astromatch
+        <hr />
+      </strong>
+
+      <HomePage />
+      <MatchesPage />
+
+    </BordaGeral>
+
+  )
+
+}
+
+export default App
+>>>>>>> 43ca3306f44388fd92e030f630e537d4a5ae5052
