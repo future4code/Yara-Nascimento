@@ -23,7 +23,7 @@ export const HomePage = () => {
             })
     }
 
-
+    
     return (
         <div>
             <div>
@@ -31,8 +31,8 @@ export const HomePage = () => {
                     <h2>{profile.name}, {profile.age}</h2>
                     <p>{profile.bio}</p>
                     <div>
-                        <button>x</button>
-                        <button>s2</button>
+                        <button>Não quero</button>
+                        <button>Eu quero</button>
                     </div>
             </div>
         </div>
