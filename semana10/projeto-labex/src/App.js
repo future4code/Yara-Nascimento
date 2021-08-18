@@ -1,39 +1,44 @@
 import React from 'react'
-import { HomeViagens } from './pages/HomeViagens'
-import { AreaAdmin } from './pages/AreaAdmin'
-import { Inscrever} from './pages/Inscrever'
-import { ListaViagens} from './pages/ListaViagens'
-import styled from 'styled-components'
+import { CreateTripPage } from './pages/CreateTripPage';
+import { HomePage } from './pages/HomePage';
+import { ListTripsPage } from './pages/ListTripsPage';
+import { LoginPage } from './pages/LoginPage';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
-const AppContainer = styled.div`
-text-align: center ;
- text-align: center;
-
-`
-
-
-
-
-
-function App() {
+export default function App() {
   return (
-    <AppContainer>
 
-     <HomeViagens/>
-     <hr />
+    <div>
 
-     <AreaAdmin/>
-     <hr />
+      <BrowserRouter>
+      <Switch>
+    
+    <Route exact path={'/'}>
+      <HomePage />
+      </Route>
 
-    <ListaViagens/>
-    <hr />
 
-    <Inscrever/>
-    <hr />
+      <Route exact path={'/jsListTripsPage.'}>
+      < ListTripsPage/>
+      </Route>
 
-    </AppContainer>
+     
+      <Route exact path={'/LoginPage.js'}>
+     <LoginPage />
+      </Route>
+
+      <Route exact path={'/CreateTripPage.js'}>
+     <CreateTripPage/>
+      </Route>
+
+
+
+      </Switch>
+      </BrowserRouter>
+
+  </div>
+
+  
   );
 }
-
-export default App;
