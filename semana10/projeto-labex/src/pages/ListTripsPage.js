@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+
 
 const ListTripsPageContainer = styled.div`
    color: black;
@@ -22,6 +24,7 @@ const CaixaNome = styled.div`
 `
 
 export const ListTripsPage = () => {
+    const [trips, setTrips] = useState ([])
     
     const history = useHistory()
 
@@ -30,9 +33,39 @@ export const ListTripsPage = () => {
     }
 
     const goToApplicationFormPage = () => {
-        history.push('/ApplicationFormPage.js')
+        history.push('/ApplicationFormPage')
+    }
+    const entrarViagens = () => {
+        history.push('/TripDetailsPage')
     }
 
+    const getTrips = () => {
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/yara/trips')
+
+        .then((res) => {
+            console.log(res.data.trips);
+            setTrips(res.data.trips);
+        }).catch((err) => {
+            console.log();
+        })
+    }
+
+    useEffect(() => {
+        getTrips()
+      }, []);
+
+   const todasViagens = trips.map((viagem) => {
+       return (
+        <CaixaNome>
+            <p>{viagem.planet}</p>
+            <p>{viagem.name}</p>
+            <p>{viagem.date}</p>
+            <p>{viagem.durationInDays}</p>
+            <p>{viagem.description}</p>
+           
+        </CaixaNome>
+       )
+   })
 
     return (
         <ListTripsPageContainer>
@@ -43,23 +76,10 @@ export const ListTripsPage = () => {
 
             <h1>Lista de Viagens</h1>
 
-            <CaixaNome>
-            </CaixaNome>
-
-            <CaixaNome>
-            </CaixaNome>
-
-            <CaixaNome>
-            </CaixaNome>
-
-            <CaixaNome>
-            </CaixaNome>
-
-            <CaixaNome>
-            </CaixaNome>
+            {todasViagens}
 
        
-
+        <button onClick={entrarViagens}>Entrar para ver viagens</button>
         </ListTripsPageContainer>
     )
 }

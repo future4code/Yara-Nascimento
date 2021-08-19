@@ -39,6 +39,10 @@ export const LoginPage = () => {
     const voltarHomePage = () => {
         history.push('/')
     }
+
+    const goToCreateTripsPage = () => {
+        history.push('/CreateTripPage')
+    }
     return (
         
         <div>
@@ -59,7 +63,7 @@ export const LoginPage = () => {
 
         <BotaoContainer>
                <button onClick={voltarHomePage}>Voltar</button>
-               <button>Entrar</button>
+               <button onClick={goToCreateTripsPage}>Entrar</button>
          </BotaoContainer>
                </div>
        

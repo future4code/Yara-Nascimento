@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
+
 const HomePageContainer = styled.div`
-color: white;
 width: 100px; 
     margin-left: auto;
     margin-right: auto; 
@@ -14,25 +14,25 @@ width: 100px;
     border-radius: 50px;
     background-color: pink;
     font-size: 18px;
-
+    align-items: center;
 `
 
 export const HomePage = () => {
 const history = useHistory()
 
     const goToListTripsPage = () => {
-        history.push('/ListTripsPage.js')
+        history.push('/ListTripsPage')
     }
 
     const goToLoginPage = () => {
-        history.push('/LoginPage.js')
+        history.push('/LoginPage')
     }
 
     return (
 
         <HomePageContainer>
                 <h1>Labex</h1>
-              <br />
+              <img src='https://images8.alphacoders.com/642/642527.jpg' width='100%'/>
        <button onClick={goToListTripsPage}>Ver Viagens</button>
        <button onClick={goToLoginPage}>Área de Admin</button>
 

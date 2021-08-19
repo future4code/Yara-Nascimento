@@ -28,7 +28,7 @@ export const ApplicationFormPage = () => {
     const history = useHistory()
 
     const voltarListTripsPage = () => {
-        history.push('/ListTripsPage.js')
+        history.push('/ListTripsPage')
     }
     const [nome, setNome] = useState('')
     const [idade, setIdade] = useState('')
