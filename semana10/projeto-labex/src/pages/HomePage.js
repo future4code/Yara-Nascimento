@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 const HomePageContainer = styled.div`
 color: white;
@@ -17,14 +18,23 @@ width: 100px;
 `
 
 export const HomePage = () => {
+const history = useHistory()
+
+    const goToListTripsPage = () => {
+        history.push('/ListTripsPage.js')
+    }
+
+    const goToLoginPage = () => {
+        history.push('/LoginPage.js')
+    }
 
     return (
 
         <HomePageContainer>
                 <h1>Labex</h1>
               <br />
-       <button>Ver Viagens</button>
-       <button>Área de Admin</button>
+       <button onClick={goToListTripsPage}>Ver Viagens</button>
+       <button onClick={goToLoginPage}>Área de Admin</button>
 
         </HomePageContainer>
     )

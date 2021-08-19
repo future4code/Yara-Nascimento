@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -14,15 +15,35 @@ const LoginPageContainer = styled.div`
     border: 3px solid #eee;
     border-radius: 50px;
     background-color: pink;
-    font-size: 18px;
-    
+    font-size: 18px;   
 `
 
+const BotaoContainer = styled.div`
+    
+    width: 100px; 
+    margin-left: auto;
+    margin-right: auto; 
+    width: 350px;
+    text-align: center;
+    padding: 30px 30px;
+    
+   
+    
+    font-size: 18px;  
+    `
+
 export const LoginPage = () => {
+
+    const history = useHistory()
+
+    const voltarHomePage = () => {
+        history.push('/')
+    }
     return (
+        
+        <div>
 
         <LoginPageContainer>
-          
             <h1>LoginPage</h1>
 
             <label>
@@ -33,14 +54,15 @@ export const LoginPage = () => {
             <label>
                 Senha:
                 <input type="text" name="nome" />
-            </label>
-           <div>
-               <button>Voltar</button>
-               <button>Entrar</button>
-           </div>
+            </label> 
         </LoginPageContainer>
-        
-        
+
+        <BotaoContainer>
+               <button onClick={voltarHomePage}>Voltar</button>
+               <button>Entrar</button>
+         </BotaoContainer>
+               </div>
+       
         
     )
 }

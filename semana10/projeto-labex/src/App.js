@@ -1,15 +1,14 @@
 import React from 'react'
-import { CreateTripPage } from './pages/CreateTripPage';
 import { HomePage } from './pages/HomePage';
 import { ListTripsPage } from './pages/ListTripsPage';
 import { LoginPage } from './pages/LoginPage';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ApplicationFormPage } from './pages/ApplicationFormPage';
 
 
 export default function App() {
   return (
 
-    <div>
 
       <BrowserRouter>
       <Switch>
@@ -19,7 +18,7 @@ export default function App() {
       </Route>
 
 
-      <Route exact path={'/jsListTripsPage.'}>
+      <Route exact path={'/ListTripsPage.js'}>
       < ListTripsPage/>
       </Route>
 
@@ -28,17 +27,12 @@ export default function App() {
      <LoginPage />
       </Route>
 
-      <Route exact path={'/CreateTripPage.js'}>
-     <CreateTripPage/>
+      <Route exact path={'/ApplicationFormPage.js'}>
+     <ApplicationFormPage/>
       </Route>
-
-
 
       </Switch>
       </BrowserRouter>
-
-  </div>
-
   
   );
 }

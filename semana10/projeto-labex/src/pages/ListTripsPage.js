@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { useHistory } from 'react-router-dom'
 
 const ListTripsPageContainer = styled.div`
    color: black;
@@ -22,14 +22,24 @@ const CaixaNome = styled.div`
 `
 
 export const ListTripsPage = () => {
+    
+    const history = useHistory()
+
+    const voltarHomePage = () => {
+        history.push('/')
+    }
+
+    const goToApplicationFormPage = () => {
+        history.push('/ApplicationFormPage.js')
+    }
 
 
     return (
         <ListTripsPageContainer>
 
           
-            <button>Voltar</button>
-            <button>Inscrever-se</button>
+            <button onClick={voltarHomePage}>Voltar</button>
+            <button onClick={goToApplicationFormPage}>Inscrever-se</button>
 
             <h1>Lista de Viagens</h1>
 

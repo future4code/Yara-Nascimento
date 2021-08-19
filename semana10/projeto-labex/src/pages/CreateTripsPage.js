@@ -1,7 +1,8 @@
 import React, { useState} from 'react'
 import styled from 'styled-components'
 
-const  CreateTripPageContainer = styled.div`
+
+const  CreateTripsPageContainer = styled.div`
    color: black;
     width: 100px; 
     margin-left: auto;
@@ -15,7 +16,8 @@ const  CreateTripPageContainer = styled.div`
     font-size: 18px;
 `
 
-export const CreateTripPage = () =>  {
+export const CreateTripsPage = () =>  {
+    
 
     const [nome, setNome] = useState('')
     const [idade, setIdade] = useState('')
@@ -25,7 +27,7 @@ export const CreateTripPage = () =>  {
 
 
     return(
-        <CreateTripPageContainer>
+        <CreateTripsPageContainer>
     
              <h1>Faça-se para uma viagem</h1>
 
@@ -56,8 +58,12 @@ export const CreateTripPage = () =>  {
         </select>
 
         <p>País escolhido: {viagemMaluca}</p>
+
+        <button>Voltar</button>
+        <button>Enviar</button>
         
-        </CreateTripPageContainer>
+        </CreateTripsPageContainer>
+        
         
     )
 
