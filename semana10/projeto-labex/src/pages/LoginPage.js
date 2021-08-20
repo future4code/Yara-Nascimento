@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-
-
+import axios from 'axios'
 
 const LoginPageContainer = styled.div`
     color: black;
@@ -17,22 +17,15 @@ const LoginPageContainer = styled.div`
     background-color: pink;
     font-size: 18px;   
 `
-
-const BotaoContainer = styled.div`
-    
+const ButtonLogin = styled.div`
     width: 100px; 
     margin-left: auto;
     margin-right: auto; 
-    width: 350px;
-    text-align: center;
-    padding: 30px 30px;
-    
-   
-    
-    font-size: 18px;  
-    `
+    text-align: center;  
+`
 
 export const LoginPage = () => {
+    const [trips, setTrips] = useState([])
 
     const history = useHistory()
 
@@ -40,33 +33,62 @@ export const LoginPage = () => {
         history.push('/')
     }
 
-    const goToCreateTripsPage = () => {
-        history.push('/CreateTripPage')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const onChangeEmail = (event) => {
+        setEmail(event.target.value);
     }
+
+    const onChangePassword = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const onSubmitLogin = () => {
+        console.log(email, password);
+        const body = {
+        email: email,
+        password: password
+        }
+
+        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/yara/login', body)
+        .then((response) => {
+            console.log('Deu certo:', response.data.token);
+            localStorage.setItem('token',response.data.token )
+        }).catch((error) => {
+            console.log('Deu errado:', error.response);
+        })
+    }
+
+
     return (
-        
+
         <div>
+            <div>
+                <LoginPageContainer>
+                    <h1>LoginPage</h1>
+                    <input
+                        placeholder='email'
+                        type='email'
+                        value={email}
+                        onChange={onChangeEmail}
+                    />
 
-        <LoginPageContainer>
-            <h1>LoginPage</h1>
+                    <input
+                        placeholder='password'
+                        type='password'
+                        value={password}
+                        onChange={onChangePassword}
+                    />
 
-            <label>
-                E-mail:
-                <input type="text" name="nome" />
-            </label>
-            <hr />
-            <label>
-                Senha:
-                <input type="text" name="nome" />
-            </label> 
-        </LoginPageContainer>
+                    <button onClick={onSubmitLogin}>Enviar</button>
+                </LoginPageContainer>
 
-        <BotaoContainer>
-               <button onClick={voltarHomePage}>Voltar</button>
-               <button onClick={goToCreateTripsPage}>Entrar</button>
-         </BotaoContainer>
-               </div>
-       
-        
+                <ButtonLogin>
+                <button onClick={voltarHomePage}>Voltar</button>
+                </ButtonLogin>
+            </div>
+
+        </div>
     )
 }

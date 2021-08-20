@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -24,8 +24,9 @@ const CaixaNome = styled.div`
 `
 
 export const ListTripsPage = () => {
-    const [trips, setTrips] = useState ([])
     
+    const [trips, setTrips] = useState([])
+
     const history = useHistory()
 
     const voltarHomePage = () => {
@@ -33,53 +34,53 @@ export const ListTripsPage = () => {
     }
 
     const goToApplicationFormPage = () => {
-        history.push('/ApplicationFormPage')
+        history.push('/trips/application')
     }
     const entrarViagens = () => {
-        history.push('/TripDetailsPage')
+        history.push('/admin/trips/list')
     }
 
     const getTrips = () => {
         axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/yara/trips')
 
-        .then((res) => {
-            console.log(res.data.trips);
-            setTrips(res.data.trips);
-        }).catch((err) => {
-            console.log();
-        })
+            .then((res) => {
+                console.log(res.data.trips);
+                setTrips(res.data.trips);
+            }).catch((err) => {
+                console.log();
+            })
     }
 
     useEffect(() => {
         getTrips()
-      }, []);
+    }, []);
 
-   const todasViagens = trips.map((viagem) => {
-       return (
-        <CaixaNome>
-            <p>{viagem.planet}</p>
-            <p>{viagem.name}</p>
-            <p>{viagem.date}</p>
-            <p>{viagem.durationInDays}</p>
-            <p>{viagem.description}</p>
-           
-        </CaixaNome>
-       )
-   })
+    const todasViagens = trips.map((viagem) => {
+        return (
+            <CaixaNome>
+                <p>Planeta:{viagem.planet}</p>
+                <p>Nome:{viagem.name}</p>
+                <p>Data:{viagem.date}</p>
+                <p>Duração de Dias:{viagem.durationInDays}</p>
+                <p>Descrição:{viagem.description}</p>
+
+            </CaixaNome>
+        )
+    })
 
     return (
         <ListTripsPageContainer>
 
-          
+
             <button onClick={voltarHomePage}>Voltar</button>
             <button onClick={goToApplicationFormPage}>Inscrever-se</button>
+            <button onClick={entrarViagens}>Entrar para ver viagens</button>
 
             <h1>Lista de Viagens</h1>
 
             {todasViagens}
 
-       
-        <button onClick={entrarViagens}>Entrar para ver viagens</button>
+
         </ListTripsPageContainer>
     )
 }
