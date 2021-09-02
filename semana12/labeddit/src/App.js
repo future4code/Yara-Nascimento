@@ -1,13 +1,15 @@
 import React from 'react'
+import theme from './constants/theme';
+import  Router  from './routes/Router';
+import { ThemeProvider } from 'styled-components';
+
 
 function App() {
   return (
-    <div>
-
-      <h1>LabEddit</h1>
-      
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+     <Router/>
+    </ThemeProvider>
+  )
 }
 
 export default App;
